@@ -1,0 +1,430 @@
+/* =========================
+   GOOGLE FONT
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --primary:#00e5ff;
+    --secondary:#8b5cf6;
+    --accent:#14f195;
+    --bg:#030712;
+    --card:rgba(255,255,255,0.06);
+    --text:#ffffff;
+    --muted:#94a3b8;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-2;
+
+    background:
+    radial-gradient(circle at 20% 20%, rgba(0,229,255,.12), transparent 30%),
+    radial-gradient(circle at 80% 30%, rgba(139,92,246,.15), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(20,241,149,.08), transparent 30%);
+}
+
+/* =========================
+   BUBBLES
+========================= */
+
+#bubbles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.bubble{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(5px);
+    animation:float linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(110vh);
+    }
+
+    to{
+        transform:translateY(-120vh);
+    }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 8%;
+
+    backdrop-filter:blur(15px);
+
+    background:rgba(0,0,0,.2);
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:700;
+    color:var(--primary);
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:var(--primary);
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:100px 20px;
+}
+
+.profile{
+    width:260px;
+    height:260px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:4px solid var(--primary);
+
+    box-shadow:
+    0 0 20px rgba(0,229,255,.5),
+    0 0 60px rgba(0,229,255,.2);
+
+    margin-bottom:30px;
+
+    transition:.4s;
+}
+
+.profile:hover{
+    transform:scale(1.05);
+}
+
+.hero h1{
+    font-size:4rem;
+    font-weight:800;
+
+    background:linear-gradient(
+    90deg,
+    #00e5ff,
+    #8b5cf6,
+    #14f195);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero h2{
+    margin-top:15px;
+    color:var(--primary);
+    min-height:40px;
+}
+
+.hero p{
+    margin-top:20px;
+    max-width:700px;
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+    display:inline-block;
+
+    margin-top:30px;
+    margin-right:15px;
+
+    padding:14px 30px;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    background:linear-gradient(
+    90deg,
+    var(--primary),
+    var(--secondary));
+
+    color:white;
+
+    transition:.4s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+.secondary{
+    background:transparent;
+
+    border:1px solid var(--primary);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    padding:100px 10%;
+}
+
+section h2{
+    text-align:center;
+    font-size:2.8rem;
+    margin-bottom:50px;
+}
+
+/* =========================
+   GLASS CARDS
+========================= */
+
+.grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+}
+
+.card{
+
+    background:var(--card);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    transition:.4s;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-10px);
+
+    border-color:var(--primary);
+
+    box-shadow:
+    0 15px 40px rgba(0,229,255,.15);
+}
+
+/* =========================
+   EXPERIENCE TIMELINE
+========================= */
+
+.timeline{
+    position:relative;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:20px;
+    width:3px;
+    height:100%;
+    background:var(--primary);
+}
+
+.timeline-item{
+    margin-left:60px;
+    margin-bottom:30px;
+}
+
+.timeline-item h3{
+    color:var(--primary);
+}
+
+/* =========================
+   SKILLS TAGS
+========================= */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+}
+
+.skills span{
+    background:var(--card);
+
+    padding:12px 25px;
+
+    border-radius:50px;
+
+    transition:.3s;
+}
+
+.skills span:hover{
+    background:var(--primary);
+    color:black;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin-bottom:10px;
+    color:var(--muted);
+}
+
+.socials{
+    margin-top:25px;
+}
+
+.socials a{
+
+    color:white;
+
+    font-size:24px;
+
+    margin:0 15px;
+
+    transition:.3s;
+}
+
+.socials a:hover{
+    color:var(--primary);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    text-align:center;
+
+    padding:40px;
+
+    color:var(--muted);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0f172a;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--primary);
+    border-radius:20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.hero p{
+    font-size:14px;
+}
+
+.profile{
+    width:180px;
+    height:180px;
+}
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav ul{
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+section{
+    padding:80px 8%;
+}
+
+}
